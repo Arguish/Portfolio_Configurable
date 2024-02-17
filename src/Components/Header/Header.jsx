@@ -4,25 +4,41 @@ import styled from 'styled-components';
 import RotatingWords from '../RotatingWords/RotatingWords';
 import { useNavigate } from 'react-router-dom';
 import ThemeButton from '../ThemeButton/ThemeButton';
+import lightBorder from './photo_5947258360736891134_x.jpg';
+import darkBorder from './photo_5947258360736891136_x.jpg';
+import headerBackground from './16.jpg'; // Agrega la ruta a la imagen de fondo
+
+const handleBorder = (props) =>
+    props.theme === 'dark' ? darkBorder : lightBorder;
 
 // Componentes estilizados
+const HeaderBorder = styled.div`
+    border: 8px solid transparent;
+    border-style: solid;
+    border-width: 20px;
+    /* Utiliza la sintaxis correcta para border-image */
+    border-image-source: url(${handleBorder(props)});
+    border-image-slice: 40 fill;
+    border-image-repeat: repeat;
+    border-image-width: 20px;
+    border-image-outset: 0;
+    background-image: url(${headerBackground});
+    background-blend-mode: multiply;
+    background-color: var(--background-color);
+    border-radius: 20px;
+`;
 const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: var(
-        --background-color
-    ); // Asegúrate de que esta variable está definida y tiene un valor.
-    color: var(
-        --text-color
-    ); // Asegúrate de que esta variable está definida y tiene un valor.
+    border-radius: 20px;
+    background-color: var(--background-color);
+    background-image: url(${headerBackground});
+    background-blend-mode: multiply;
+    color: var(--text-color);
 
     // Establece un borde sólido para ver el efecto del borde mientras se ajusta border-image
-    border: 8px solid;
-
-    // Ajusta el borde para usar el SVG
-    // Ajusta si necesitas esquinas redondeadas.
 `;
 
 const Logo = styled.h1`
@@ -38,11 +54,11 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
     text-decoration: none;
-    color: #333; // Ajusta el color del texto según tu diseño
+    color: var(--accent-color); // Ajusta el color del texto según tu diseño
     font-weight: bold;
 
     &:hover {
-        color: #007bff; // Color al pasar el mouse
+        color: darken(var(--accent-color), 10%); // Color al pasar el mouse
     }
 `;
 
@@ -55,21 +71,23 @@ const Header = ({ theme, toggleTheme }) => {
         navigate('/'); // Cambia a la ruta de inicio
     };
     return (
-        <HeaderContainer>
-            <Logo onClick={handleClick}>
-                While (true):
-                <RotatingWords />
-            </Logo>
-            <div>
-                <Nav>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/about">About Me</NavLink>
-                    <NavLink to="/projects">Projects</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
-                    <ThemeButton theme={theme} toggleTheme={toggleTheme} />
-                </Nav>
-            </div>
-        </HeaderContainer>
+        <HeaderBorder theme={theme}>
+            <HeaderContainer>
+                <Logo onClick={handleClick}>
+                    While (true):
+                    <RotatingWords />
+                </Logo>
+                <div>
+                    <Nav>
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/about">About Me</NavLink>
+                        <NavLink to="/projects">Projects</NavLink>
+                        <NavLink to="/contact">Contact</NavLink>
+                        <ThemeButton theme={theme} toggleTheme={toggleTheme} />
+                    </Nav>
+                </div>
+            </HeaderContainer>
+        </HeaderBorder>
     );
 };
 
