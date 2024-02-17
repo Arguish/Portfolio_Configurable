@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Directory from './Routes/Routes.jsx';
 import Header from './Components/Header/Header.jsx';
+import styled from 'styled-components';
+
+const MainContainer = styled.div`
+    background-color: var(
+        --body-background-color
+    ); /* Usa la nueva variable aquí */
+    /* Otros estilos que necesites */
+`;
 
 function App() {
     const [theme, setTheme] = useState('light'); // Inicializa el tema como 'light'
@@ -20,8 +28,9 @@ function App() {
     return (
         <>
             <Header theme={theme} toggleTheme={toggleTheme} />
-
-            <Directory />
+            <MainContainer>
+                <Directory />
+            </MainContainer>
         </>
     );
 }

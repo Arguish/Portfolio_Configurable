@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import RotatingWords from '../RotatingWords/RotatingWords';
+import { useNavigate } from 'react-router-dom';
+import ThemeButton from '../ThemeButton/ThemeButton';
 
 // Componentes estilizados
 const HeaderContainer = styled.header`
@@ -9,12 +11,24 @@ const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f0f0f0; // Ajusta el color de fondo según tu diseño
+    background-color: var(
+        --background-color
+    ); // Asegúrate de que esta variable está definida y tiene un valor.
+    color: var(
+        --text-color
+    ); // Asegúrate de que esta variable está definida y tiene un valor.
+
+    // Establece un borde sólido para ver el efecto del borde mientras se ajusta border-image
+    border: 8px solid;
+
+    // Ajusta el borde para usar el SVG
+    // Ajusta si necesitas esquinas redondeadas.
 `;
 
 const Logo = styled.h1`
     margin: 0;
     font-size: 24px;
+    cursor: pointer;
 `;
 
 const Nav = styled.nav`
@@ -32,18 +46,17 @@ const NavLink = styled(Link)`
     }
 `;
 
-const ThemeButton = styled.button`
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-`;
-
 // Asume que Header recibe props theme y toggleTheme
 const Header = ({ theme, toggleTheme }) => {
+    const navigate = useNavigate();
+
+    // Función para manejar el clic en el logo
+    const handleClick = () => {
+        navigate('/'); // Cambia a la ruta de inicio
+    };
     return (
         <HeaderContainer>
-            <Logo>
+            <Logo onClick={handleClick}>
                 While (true):
                 <RotatingWords />
             </Logo>
@@ -53,10 +66,8 @@ const Header = ({ theme, toggleTheme }) => {
                     <NavLink to="/about">About Me</NavLink>
                     <NavLink to="/projects">Projects</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
+                    <ThemeButton theme={theme} toggleTheme={toggleTheme} />
                 </Nav>
-                <ThemeButton onClick={toggleTheme}>
-                    {theme === 'dark' ? '🌕' : '🌑'}
-                </ThemeButton>
             </div>
         </HeaderContainer>
     );

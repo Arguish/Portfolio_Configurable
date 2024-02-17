@@ -63,13 +63,10 @@ const AboutMe = () => {
             </Bio>
             <SectionTitle>Habilidades</SectionTitle>
             <SkillsContainer>
-                {skills.map((skill) => (
-                    <TechLogo
-                        key={skill.name}
-                        text={skill.domain}
-                        size="100px"
-                    />
-                ))}
+                <TechLogo technologies={skills} size="100px" />
+                <TechLogo technologies={skills} size="100px" />
+                <TechLogo technologies={skills} size="100px" />
+                <TechLogo technologies={skills} size="100px" />
             </SkillsContainer>
         </AboutContainer>
     );
