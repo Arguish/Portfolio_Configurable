@@ -1,5 +1,6 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import { useGlobalContext } from '../CustomHooks/useGlobalContext/useGlobalContext';
+import axios from 'axios';
 import styled from 'styled-components';
 import Photo1 from '../assets/photo_5999151787694733785_w.jpg';
 
@@ -44,6 +45,23 @@ const Image = styled.div`
 `;
 
 const Home = () => {
+    const { showAlert } = useGlobalContext();
+
+    useEffect(() => {
+        const wakeUpServer = async () => {
+            try {
+                const response = await axios.get('https://mads.onrender.com/');
+                showAlert(response.data, 'info');
+            } catch (error) {
+                showAlert('???', 'error');
+
+                console.error('Error al despertar el servidor:', error);
+            }
+        };
+
+        wakeUpServer();
+    }, []);
+
     return (
         <HomeContainer>
             <Image src={Photo1} alt="Tu foto" />

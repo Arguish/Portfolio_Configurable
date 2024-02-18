@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
+import { useGlobalContext } from '../CustomHooks/useGlobalContext/useGlobalContext';
 
 const FormContainer = styled.div`
     display: flex;
@@ -42,6 +44,8 @@ const Button = styled.button`
 const LoginPage = () => {
     const navigate = useNavigate();
 
+    const { showAlert } = useGlobalContext();
+
     useEffect(() => {
         const allowedAccess = localStorage.getItem('allowedAccess');
         if (allowedAccess !== 'true') {
@@ -51,14 +55,33 @@ const LoginPage = () => {
         }
     }, [navigate]);
 
-    const [username, setUsername] = useState('');
+    const [mail, setmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Login attempt with:', username, password);
 
-        navigate('/');
+        // Datos del formulario
+        const loginData = {
+            mail,
+            password,
+        };
+
+        try {
+            const response = await axios.post(
+                'https://mads.onrender.com/user/login',
+                loginData
+            );
+            showAlert(String(response.data.message), 'info');
+            console.log('Respuesta del servidor:', response.data);
+
+            localStorage.setItem('authToken', response.data.token);
+
+            navigate('/dashboard');
+        } catch (error) {
+            showAlert(error.response.data, 'error');
+            console.log(error);
+        }
     };
 
     return (
@@ -66,10 +89,10 @@ const LoginPage = () => {
             <Form onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 <Input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    type="mail"
+                    placeholder="E@mail"
+                    value={mail}
+                    onChange={(e) => setmail(e.target.value)}
                 />
                 <Input
                     type="password"
