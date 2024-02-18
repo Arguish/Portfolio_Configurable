@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-// Importa los componentes de cada página
+
 import Home from '../pages/Home.jsx';
 import Login from '../pages/Login.jsx';
 import AboutMe from '../pages/AboutMe.jsx';
@@ -11,12 +11,12 @@ const Directory = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Home />} /> // Página de inicio
-                <Route path="/login" element={<Login />} /> // Página de inicio
-                <Route path="/about" element={<AboutMe />} /> // Página sobre mí
-                <Route path="/projects" element={<Projects />} /> // Página de
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/about" element={<AboutMe />} />
+                <Route path="/projects" element={<Projects />} />
                 proyectos
-                <Route path="/contact" element={<Contact />} /> // Página de
+                <Route path="/contact" element={<Contact />} />
                 contacto
             </Routes>
         </>

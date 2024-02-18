@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TechLogo from '../Components/TechLogo/TechLogo';
+import photo from '../assets/P7290063.png';
 
 // Opcional: Definir estilos con styled-components
 const AboutContainer = styled.div`
@@ -14,11 +15,15 @@ const SectionTitle = styled.h2`
     margin: 20px 0;
 `;
 
-const ProfileImage = styled.img`
+const ProfileImage = styled.div`
     width: 150px;
     height: 150px;
     border-radius: 75px;
     margin: 20px 0;
+    background-image: url(${photo});
+    background-size: cover;
+    background-position: 50%;
+    border: 8px solid var(--text-color);
 `;
 
 const Bio = styled.p`
@@ -53,7 +58,7 @@ const AboutMe = () => {
     return (
         <AboutContainer>
             <SectionTitle>Sobre Mí</SectionTitle>
-            <ProfileImage src="tu-foto-aqui.jpg" alt="Foto de perfil" />
+            <ProfileImage />
             <Bio>
                 Aquí puedes escribir un párrafo detallado sobre ti, tu
                 experiencia, educación, y cualquier otra cosa que quieras

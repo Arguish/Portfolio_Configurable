@@ -1,12 +1,15 @@
 import React from 'react';
-// Importa styled-components si decides usarlo para los estilos
-import styled from 'styled-components';
 
-// Opcional: Definir estilos con styled-components
+import styled from 'styled-components';
+import Photo1 from '../assets/photo_5999151787694733785_w.jpg';
+
 const HomeContainer = styled.div`
+    height: 70vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 100px;
     padding: 20px;
 `;
 
@@ -21,31 +24,43 @@ const Subtitle = styled.h2`
 
 const Bio = styled.p`
     margin: 10px 0;
+    padding: 10px;
     max-width: 600px;
     text-align: center;
+    background-color: var(--background-color);
+    border: 4px solid var(--text-color);
+    border-radius: 5px;
 `;
 
-const Image = styled.img`
-    width: 200px;
-    height: 200px;
+const Image = styled.div`
+    width: 400px;
+    height: 400px;
     border-radius: 100%;
     margin: 20px 0;
+    background-image: url(${Photo1});
+    background-size: cover;
+    background-position: 50%;
+    border: 8px solid;
 `;
 
-// Componente funcional Home
 const Home = () => {
     return (
         <HomeContainer>
-            <Image src="tu-foto-aqui.jpg" alt="Tu foto" />
-            <Title>Hola, soy [Tu Nombre]</Title>
-            <Subtitle>Desarrollador/a [Tu Especialidad]</Subtitle>
-            <Bio>
-                Breve biografía o presentación personal. Habla sobre tu
-                experiencia, lo que te apasiona del desarrollo web, y cualquier
-                otro detalle que consideres relevante para quienes visitan tu
-                portfolio.
-            </Bio>
-            {/* Aquí puedes añadir más componentes o elementos, como botones que enlacen a otras secciones */}
+            <Image src={Photo1} alt="Tu foto" />
+            <div>
+                <Title>
+                    Hola, soy <strong>Javier</strong>
+                </Title>
+                <Subtitle>
+                    Desarrollador Web <strong>Full-Stack</strong>
+                </Subtitle>
+                <Bio>
+                    Breve biografía o presentación personal. Habla sobre tu
+                    experiencia, lo que te apasiona del desarrollo web, y
+                    cualquier otro detalle que consideres relevante para quienes
+                    visitan tu portfolio.
+                </Bio>
+            </div>
         </HomeContainer>
     );
 };

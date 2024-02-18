@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-// Componente estilizado para el texto y el cursor de escritura
 const RotatingText = styled.span`
-    font-weight: bold; // Ajusta según tus preferencias de estilo
+    font-weight: bold;
 `;
 
 const Cursor = styled.span`
@@ -17,16 +16,16 @@ const Cursor = styled.span`
 `;
 
 const words = [
-    'learn',
-    'code',
-    'investigate',
-    'test',
-    'deploy',
-    'design',
-    'optimize',
-    'collaborate',
-    'build',
-    'innovate',
+    ' learn',
+    ' code',
+    ' investigate',
+    ' test',
+    ' deploy',
+    ' design',
+    ' optimize',
+    ' collaborate',
+    ' build',
+    ' innovate',
 ];
 
 const RotatingWords = () => {
@@ -52,9 +51,9 @@ const RotatingWords = () => {
                     setCurrentIndex(
                         (currentIndex) => (currentIndex + 1) % words.length
                     );
-                }, 2000); // Espera 2 segundos antes de comenzar a escribir la siguiente palabra
+                }, 2000);
             }
-        }, 150); // Escribe una letra cada 150ms
+        }, 150);
 
         return () => clearInterval(updateWord);
     }, [currentWord, currentIndex, currentLetterIndex]);

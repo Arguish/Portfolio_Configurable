@@ -4,23 +4,18 @@ import Header from './Components/Header/Header.jsx';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-    background-color: var(
-        --body-background-color
-    ); /* Usa la nueva variable aquí */
-    /* Otros estilos que necesites */
+    background-color: transparent;
 `;
 
 function App() {
-    const [theme, setTheme] = useState('light'); // Inicializa el tema como 'light'
+    const [theme, setTheme] = useState('light');
 
-    // Función para cambiar entre 'light' y 'dark'
     const toggleTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
-        document.body.setAttribute('data-theme', newTheme); // Actualiza el atributo en <body>
+        document.body.setAttribute('data-theme', newTheme);
     };
 
-    // Aplica el tema al cargar el componente
     useEffect(() => {
         document.body.setAttribute('data-theme', theme);
     }, [theme]);

@@ -1,65 +1,72 @@
 :root {
-    /* Neutrales y tierras */
-    --sand: #d1b187;
-    --terra-cotta: #c77b58;
-    --burnt-sienna: #ae5d40;
-    --mahogany: #79444a;
-    --deep-brown: #4b3d44;
+    /* Nueva paleta de colores */
+    --vivid-red: #e01f3f;
+    --cream: #fff8ed;
+    /* Definiciones de colores base */
+    --warm-grey: #7b6960;
+    --deep-purple: #271d2c;
 
-    /* Complementarios y acentos */
-    --gold: #ba9158;
-    --mustard: #927441;
-    --olive-drab: #4d4539;
-    --moss-green: #77743b;
-    --sage: #b3a555;
-
-    /* Suaves y pastel */
-    --beige: #d2c9a5;
-    --sea-foam: #8caba1;
-    --teal-green: #4b726e;
-
-    /* Grises y neutros */
-    --smoky-grey: #574852;
-    --taupe: #847875;
-    --dusty-rose: #ab9b8e;
+    /* Versiones más claras y más oscuras */
+    --warm-grey-lighter: #9d8b82; /* Un tono más claro de warm-grey */
+    --warm-grey-darker: #55483d; /* Un tono más oscuro de warm-grey */
+    --deep-purple-lighter: #3e3047; /* Un tono más claro de deep-purple */
+    --deep-purple-darker: #1a0f1e; /* Un tono más oscuro de deep-purple */
 }
-/* Tema Claro */
+
+@font-face {
+    font-family: 'YourPrimaryFont';
+    src: url('./assets/fonts/Comical.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YourImportantFont';
+    src: url('./assets/fonts/LeapMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 [data-theme='light'] {
-    --background-color: var(--beige); /* Fondo más claro para el Header */
-    --body-background-color: transparent; /* Fondo más claro para el cuerpo de la página */
-    --text-color: var(--deep-brown); /* Texto oscuro para contraste */
-    --accent-color: var(--terra-cotta); /* Color de acento */
-    --border-color: var(--mustard); /* Color para bordes o elementos de UI */
+    --background-color: var(--cream);
+    --body-background-color: var(--warm-grey-lighter);
+    --text-color: var(--deep-purple);
+    --accent-color: var(--vivid-red);
+    --border-color: var(--warm-grey);
 }
 
-/* Tema Oscuro */
 [data-theme='dark'] {
-    --background-color: var(--smoky-grey); /* Fondo oscuro para el Header */
-    --body-background-color: transparent; /* Fondo más oscuro para el cuerpo de la página */
-    --text-color: var(--beige); /* Texto claro para contraste */
-    --accent-color: var(--teal-green); /* Color de acento */
-    --border-color: var(--sea-foam); /* Color para bordes o elementos de UI */
+    --background-color: var(--deep-purple-darker);
+    --body-background-color: var(--deep-purple);
+    --text-color: var(--cream);
+    --accent-color: var(--vivid-red);
+    --border-color: var(--cream);
 }
 
-/* index.css */
 body {
-    background-color: var(--background-color);
+    background-color: var(--body-background-color);
     color: var(--text-color);
-    background-image: url('./assets/back.jpg'); /* Imagen de textura de papel */
+    background-image: url('./assets/textura.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply; /* Modo de mezcla */
+    background-repeat: repeat;
+    background-blend-mode: multiply;
+    font-family: 'YourPrimaryFont', sans-serif;
 }
 a {
-    color: var(--accent-color); /* Aplica el color de acento a los enlaces */
-    text-decoration: none; /* Opcional: elimina el subrayado de los enlaces */
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: darken(
-        var(--accent-color),
-        10%
-    ); /* Oscurece el color al pasar el mouse o enfocar */
-    text-decoration: underline; /* Opcional: añade subrayado al pasar el mouse o enfocar */
+    color: darken(var(--accent-color), 10%);
+    text-decoration: underline;
+}
+
+strong {
+    font-family: 'YourImportantFont', serif;
+    font-size: 1.3em;
+    color: var(--vivid-red);
+    text-shadow: -1px -1px 0 var(--text-color), 1px -1px 0 var(--text-color),
+        -1px 1px 0 var(--text-color), 1px 1px 0 var(--text-color);
 }
