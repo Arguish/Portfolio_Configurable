@@ -26,11 +26,6 @@ const ProfileImage = styled.div`
     border: 8px solid var(--text-color);
 `;
 
-const Bio = styled.p`
-    text-align: center;
-    max-width: 800px;
-`;
-
 const SkillsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -43,6 +38,16 @@ const Skill = styled.div`
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+`;
+
+const Bio = styled.p`
+    margin: 10px 0;
+    padding: 10px;
+    max-width: 600px;
+    text-align: center;
+    background-color: var(--background-color);
+    border: 4px solid var(--text-color);
+    border-radius: 5px;
 `;
 
 // Lista de habilidades para demostrar
@@ -60,11 +65,14 @@ const AboutMe = () => {
             <SectionTitle>Sobre Mí</SectionTitle>
             <ProfileImage />
             <Bio>
-                Aquí puedes escribir un párrafo detallado sobre ti, tu
-                experiencia, educación, y cualquier otra cosa que quieras
-                compartir sobre tu viaje profesional. Esta es tu oportunidad de
-                contar tu historia y mostrar qué te hace único como
-                desarrollador/a.
+                Disfruto enfrentando desafíos, aprendiendo nuevas tecnologías y
+                trabajando en proyectos que requieren tanto pensamiento crítico
+                como creatividad.
+            </Bio>
+            <Bio>
+                Estoy constantemente buscando expandir mi conocimiento, como lo
+                demuestran mis certificaciones, así como mi dedicación al
+                aprendizaje autodidacta.
             </Bio>
             <SectionTitle>Habilidades</SectionTitle>
             <SkillsContainer>

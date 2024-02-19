@@ -48,9 +48,11 @@ const ProjectDescription = styled.p`
 const projects = [
     {
         id: 1,
-        title: 'Proyecto 1',
-        description: 'Descripción breve del proyecto 1.',
-        imageUrl: 'url-de-la-imagen-del-proyecto',
+        title: 'Proyecto Magento-DinoSol',
+        description:
+            'Durante este proyecto, me centré en identificar y solucionar problemas en la plataforma Magento 2 customizada por Dinosol, así como en crear funcionalidades personalizadas para satisfacer las necesidades específicas del Grupo Dinosol. Esto incluyó la implementación de nuevas características, la optimización del rendimiento y la mejora de la experiencia del usuario. Trabajé en estrecha colaboración con el equipo del Grupo Dinosol para entender sus requisitos y garantizar que las soluciones proporcionadas cumplieran con sus expectativas y estándares de calidad.',
+        imageUrl:
+            'https://sf.ezoiccdn.com/ezoimgfmt/www.vectorlogo.es/wp-content/uploads/2017/03/logo-vector-grupo-dinosol.jpg?ezimgfmt=rs:630x320/rscb1/ngcb1/notWebP',
         // Añade enlaces a demo/repo si es necesario
     },
     // Añade más proyectos según sea necesario

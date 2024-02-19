@@ -73,10 +73,13 @@ const Home = () => {
                     Desarrollador Web <strong>Full-Stack</strong>
                 </Subtitle>
                 <Bio>
-                    Breve biografía o presentación personal. Habla sobre tu
-                    experiencia, lo que te apasiona del desarrollo web, y
-                    cualquier otro detalle que consideres relevante para quienes
-                    visitan tu portfolio.
+                    Mi experiencia en tecnología audiovisual y mi intensiva
+                    formación en un Bootcamp de desarrollo me han dotado de una
+                    perspectiva única para crear soluciones web innovadoras.
+                </Bio>
+                <Bio>
+                    Soy un apasionado por la intersección entre{' '}
+                    <strong>tecnología</strong> y <strong>creatividad.</strong>
                 </Bio>
             </div>
         </HomeContainer>
