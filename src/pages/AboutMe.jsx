@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { fetchTechnologies } from '../services/techService';
 import TechLogo from '../Components/TechLogo/TechLogo';
 import photo from '../assets/P7290063.png';
 
@@ -34,9 +35,9 @@ const SkillsContainer = styled.div`
 `;
 
 const Skill = styled.div`
+    display: flex;
     padding: 10px;
     margin: 10px;
-    border: 1px solid #ccc;
     border-radius: 4px;
 `;
 
@@ -51,7 +52,7 @@ const Bio = styled.p`
 `;
 
 // Lista de habilidades para demostrar
-const skills = [
+const skillsDefault = [
     { name: 'HTML', domain: 'html.com' },
     { name: 'CSS', domain: 'css-tricks.com' },
     { name: 'JavaScript', domain: 'javascript.com' },
@@ -60,10 +61,41 @@ const skills = [
     { name: 'Git', domain: 'git-scm.com' },
 ];
 const AboutMe = () => {
+    const [skills, setSkills] = useState(skillsDefault);
+
+    useEffect(() => {
+        const loadTechnologies = async () => {
+            try {
+                const data = await fetchTechnologies();
+                setSkills(data); // Asume que la respuesta es el array de tecnologías
+            } catch (error) {
+                console.error('Error al cargar tecnologías:', error);
+                // Si hay un error, el estado de skills ya tiene el valor por defecto.
+            }
+        };
+
+        loadTechnologies();
+    }, []);
+    useEffect;
     return (
         <AboutContainer>
-            <SectionTitle>Sobre Mí</SectionTitle>
-            <ProfileImage />
+            <Skill>
+                <SkillsContainer>
+                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo technologies={skills} size="100px" />
+                </SkillsContainer>
+                <SkillsContainer>
+                    <ProfileImage />
+                </SkillsContainer>
+                <SkillsContainer>
+                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo technologies={skills} size="100px" />
+                </SkillsContainer>
+            </Skill>
             <Bio>
                 Disfruto enfrentando desafíos, aprendiendo nuevas tecnologías y
                 trabajando en proyectos que requieren tanto pensamiento crítico
@@ -74,13 +106,6 @@ const AboutMe = () => {
                 demuestran mis certificaciones, así como mi dedicación al
                 aprendizaje autodidacta.
             </Bio>
-            <SectionTitle>Habilidades</SectionTitle>
-            <SkillsContainer>
-                <TechLogo technologies={skills} size="100px" />
-                <TechLogo technologies={skills} size="100px" />
-                <TechLogo technologies={skills} size="100px" />
-                <TechLogo technologies={skills} size="100px" />
-            </SkillsContainer>
         </AboutContainer>
     );
 };

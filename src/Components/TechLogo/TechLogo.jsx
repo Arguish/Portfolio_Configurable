@@ -23,7 +23,7 @@ const TechLogo = ({ technologies, size }) => {
         };
 
         // Calcula un tiempo aleatorio entre 2 y 4 segundos (2000 a 4000 milisegundos)
-        const getRandomTime = () => 3000 + (Math.random() * 2000 - 1000);
+        const getRandomTime = () => 5000 + (Math.random() * 2000 - 1000);
 
         // Establece el primer intervalo
         let interval = setInterval(() => {
@@ -38,10 +38,23 @@ const TechLogo = ({ technologies, size }) => {
 
     const currentTech = technologies[currentTechIndex];
 
+    function buildImageUrl(domainOrUrl) {
+        const clearbitBaseUrl = 'https://logo.clearbit.com/';
+
+        // Comprueba si el string recibido ya es una URL completa
+        if (domainOrUrl.startsWith('http')) {
+            return domainOrUrl; // Retorna la URL completa si ya lo es
+        } else {
+            return `${clearbitBaseUrl}${domainOrUrl}`; // Construye la URL usando Clearbit si solo es un dominio
+        }
+    }
+
+    const imageUrl = buildImageUrl(currentTech.domain);
+
     return (
         <LogoImage
             key={currentTech.domain}
-            src={`https://logo.clearbit.com/${currentTech.domain}`}
+            src={imageUrl}
             alt={`Logo de ${currentTech.name}`}
             size={size}
             animate={{ rotateZ: 360 }}
