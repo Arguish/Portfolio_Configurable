@@ -1,6 +1,5 @@
 import axiosInstance from '../utils/axiosConfig';
 
-// Crear una nueva tecnología
 export const createProject = async (data) => {
     try {
         const response = await axiosInstance.post('/exp/add', data);
@@ -10,7 +9,6 @@ export const createProject = async (data) => {
     }
 };
 
-// Obtener todas las tecnologías
 export const fetchProjects = async () => {
     try {
         const response = await axiosInstance.get('/exp/all');
@@ -20,7 +18,6 @@ export const fetchProjects = async () => {
     }
 };
 
-// Actualizar una tecnología existente
 export const updateProject = async (id, data) => {
     try {
         const response = await axiosInstance.put(`/exp/${id}`, data);
@@ -30,7 +27,6 @@ export const updateProject = async (id, data) => {
     }
 };
 
-// Borrar una tecnología
 export const deleteProject = async (id) => {
     try {
         const response = await axiosInstance.delete(`/exp/${id}`);

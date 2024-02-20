@@ -1,6 +1,5 @@
 import axiosInstance from '../utils/axiosConfig';
 
-// Crear una nueva tecnología
 export const createTechnology = async (data) => {
     try {
         const response = await axiosInstance.post('/bio/add', data);
@@ -10,7 +9,6 @@ export const createTechnology = async (data) => {
     }
 };
 
-// Obtener todas las tecnologías
 export const fetchTechnologies = async () => {
     try {
         const response = await axiosInstance.get('/bio/all');
@@ -20,7 +18,6 @@ export const fetchTechnologies = async () => {
     }
 };
 
-// Actualizar una tecnología existente
 export const updateTechnology = async (id, data) => {
     try {
         const response = await axiosInstance.put(`/bio/${id}`, data);
@@ -30,7 +27,6 @@ export const updateTechnology = async (id, data) => {
     }
 };
 
-// Borrar una tecnología
 export const deleteTechnology = async (id) => {
     try {
         const response = await axiosInstance.delete(`/bio/${id}`);

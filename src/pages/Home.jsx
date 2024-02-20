@@ -1,8 +1,52 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../CustomHooks/useGlobalContext/useGlobalContext';
-import axios from 'axios';
+import axiosInstance from '../utils/axiosConfig';
 import styled from 'styled-components';
 import Photo1 from '../assets/photo_5999151787694733785_w.jpg';
+
+const Home = () => {
+    const { showAlert } = useGlobalContext();
+
+    useEffect(() => {
+        const wakeUpServer = async () => {
+            try {
+                const response = await axiosInstance.get('');
+                showAlert(response.data, 'info');
+            } catch (error) {
+                showAlert('???', 'error');
+
+                console.error('Error al despertar el servidor:', error);
+            }
+        };
+
+        wakeUpServer();
+    }, []);
+
+    return (
+        <HomeContainer>
+            <Image src={Photo1} alt="Tu foto" />
+            <div>
+                <Title>
+                    Hola, soy <strong>Javier</strong>
+                </Title>
+                <Subtitle>
+                    Desarrollador Web <strong>Full-Stack</strong>
+                </Subtitle>
+                <Bio>
+                    Mi experiencia en tecnología audiovisual y mi intensiva
+                    formación en un Bootcamp de desarrollo me han dotado de una
+                    perspectiva única para crear soluciones web innovadoras.
+                </Bio>
+                <Bio>
+                    Soy un apasionado por la intersección entre{' '}
+                    <strong>tecnología</strong> y <strong>creatividad.</strong>
+                </Bio>
+            </div>
+        </HomeContainer>
+    );
+};
+
+export default Home;
 
 const HomeContainer = styled.div`
     height: 70vh;
@@ -43,47 +87,3 @@ const Image = styled.div`
     background-position: 50%;
     border: 8px solid;
 `;
-
-const Home = () => {
-    const { showAlert } = useGlobalContext();
-
-    useEffect(() => {
-        const wakeUpServer = async () => {
-            try {
-                const response = await axios.get('https://mads.onrender.com/');
-                showAlert(response.data, 'info');
-            } catch (error) {
-                showAlert('???', 'error');
-
-                console.error('Error al despertar el servidor:', error);
-            }
-        };
-
-        wakeUpServer();
-    }, []);
-
-    return (
-        <HomeContainer>
-            <Image src={Photo1} alt="Tu foto" />
-            <div>
-                <Title>
-                    Hola, soy <strong>Javier</strong>
-                </Title>
-                <Subtitle>
-                    Desarrollador Web <strong>Full-Stack</strong>
-                </Subtitle>
-                <Bio>
-                    Mi experiencia en tecnología audiovisual y mi intensiva
-                    formación en un Bootcamp de desarrollo me han dotado de una
-                    perspectiva única para crear soluciones web innovadoras.
-                </Bio>
-                <Bio>
-                    Soy un apasionado por la intersección entre{' '}
-                    <strong>tecnología</strong> y <strong>creatividad.</strong>
-                </Bio>
-            </div>
-        </HomeContainer>
-    );
-};
-
-export default Home;

@@ -26,11 +26,8 @@ const Modal = ({ project, onClose }) => {
     return (
         <ModalBackdrop onClick={onClose}>
             <ModalContent onClick={(e) => e.stopPropagation()}>
-                {' '}
-                {/* Esto evita que el modal se cierre al hacer clic dentro */}
                 <h2>{project.title}</h2>
                 <p>{project.description}</p>
-                {/* Aquí puedes añadir más detalles del proyecto */}
                 <button onClick={onClose}>Cerrar</button>
             </ModalContent>
         </ModalBackdrop>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Modal from './Modal.jsx'; // Asume que tienes un componente Modal
-import Chip from './Chip.jsx'; // Asume que tienes un componente Chip para tecnologías
+import Modal from './Modal.jsx';
+import Chip from './Chip.jsx';
 
 const Card = styled.div`
     height: 300px;
@@ -55,7 +55,7 @@ const ProjectCard = ({ project }) => {
                             key={tech.name}
                             text={tech.name}
                             color={tech.color}
-                        /> // Asume que Chip acepta props text y color
+                        />
                     ))}
                 </TechChipsContainer>
             </Card>

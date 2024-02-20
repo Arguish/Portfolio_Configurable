@@ -6,6 +6,36 @@ import { useNavigate } from 'react-router-dom';
 import ThemeButton from '../ThemeButton/ThemeButton';
 import headerBackground from '../../assets/textura.jpg';
 
+const Header = ({ theme, toggleTheme }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/');
+    };
+    return (
+        <HeaderBorder theme={theme}>
+            <HeaderContainer>
+                <Logo onClick={handleClick}>
+                    <strong>
+                        While (true):
+                        <RotatingWords />
+                    </strong>
+                </Logo>
+                <div>
+                    <Nav>
+                        <NavLink to="/about">About Me</NavLink>
+                        <NavLink to="/projects">Projects</NavLink>
+                        <NavLink to="/contact">Contact</NavLink>
+                        <ThemeButton theme={theme} toggleTheme={toggleTheme} />
+                    </Nav>
+                </div>
+            </HeaderContainer>
+        </HeaderBorder>
+    );
+};
+
+export default Header;
+
 const HeaderBorder = styled.div`
     border: 4px solid;
     border-style: solid;
@@ -48,33 +78,3 @@ const NavLink = styled(Link)`
         color: darken(var(--accent-color), 10%);
     }
 `;
-
-const Header = ({ theme, toggleTheme }) => {
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        navigate('/');
-    };
-    return (
-        <HeaderBorder theme={theme}>
-            <HeaderContainer>
-                <Logo onClick={handleClick}>
-                    <strong>
-                        While (true):
-                        <RotatingWords />
-                    </strong>
-                </Logo>
-                <div>
-                    <Nav>
-                        <NavLink to="/about">About Me</NavLink>
-                        <NavLink to="/projects">Projects</NavLink>
-                        <NavLink to="/contact">Contact</NavLink>
-                        <ThemeButton theme={theme} toggleTheme={toggleTheme} />
-                    </Nav>
-                </div>
-            </HeaderContainer>
-        </HeaderBorder>
-    );
-};
-
-export default Header;

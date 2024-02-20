@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { createProject } from '../../services/projectService';
 
-const NewProjectForm = ({ setIsModalOpen }) => {
+const NewProjectForm = () => {
     const [newProject, setNewProject] = useState({
         title: '',
         description: '',

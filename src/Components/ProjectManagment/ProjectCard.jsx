@@ -4,7 +4,7 @@ import { updateProject, deleteProject } from '../../services/projectService';
 
 const ProjectCard = ({ project, handleProjectChange }) => {
     const [teches, setTeches] = useState(project.technologies || []);
-    const [newTech, setNewTech] = useState(''); // Estado para el nuevo nombre de la tecnología
+    const [newTech, setNewTech] = useState('');
     const [newColor, setNewColor] = useState('');
     const [edit, setedit] = useState(false);
 

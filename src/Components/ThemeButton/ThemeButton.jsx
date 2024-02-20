@@ -19,14 +19,14 @@ const ThemeButton = ({ toggleTheme, theme }) => {
         if (clickCount === 10) {
             setIsDisabled(true);
             setTimeout(() => {
-                setIsDisabled(false); // Reactiva el botón después de 1 segundo
-                localStorage.setItem('allowedAccess', 'true'); // Establece una bandera en el almacenamiento local
-                navigate('/login'); // Redirige a la página de login
+                setIsDisabled(false);
+                localStorage.setItem('allowedAccess', 'true');
+                navigate('/login');
             }, 1000);
-            setClickCount(0); // Restablece el contador de clics
+            setClickCount(0);
         } else if (clickCount > 0) {
             timer = setTimeout(() => {
-                setClickCount(0); // Restablece el contador de clics si no se alcanzan los 10 clics en 2 segundos
+                setClickCount(0);
             }, 2000);
         }
 
@@ -37,7 +37,6 @@ const ThemeButton = ({ toggleTheme, theme }) => {
         if (!isDisabled) {
             setClickCount((prev) => prev + 1);
             if (clickCount < 9) {
-                // Asegura que toggleTheme solo se llama en los primeros 9 clics
                 toggleTheme();
             }
         }

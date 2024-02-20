@@ -5,8 +5,6 @@ const useAlert = () => {
 
     const showAlert = useCallback((message, type = 'info') => {
         setAlert({ message, type });
-
-        // Ocultar la alerta después de 3 segundos
         setTimeout(() => {
             setAlert(null);
         }, 3000);

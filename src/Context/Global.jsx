@@ -9,11 +9,9 @@ export const GlobalProvider = ({ children }) => {
         visible: false,
     });
 
-    // Muestra la alerta con un mensaje y un tipo ('info' o 'error')
     const showAlert = (message, type) => {
         setAlert({ message, type, visible: true });
 
-        // Oculta la alerta después de 3 segundos
         setTimeout(() => {
             setAlert({ message: '', type: '', visible: false });
         }, 3000);

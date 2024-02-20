@@ -1,16 +1,14 @@
 :root {
-    /* Nueva paleta de colores */
     --vivid-red: #e01f3f;
     --cream: #fff8ed;
-    /* Definiciones de colores base */
+
     --warm-grey: #7b6960;
     --deep-purple: #271d2c;
 
-    /* Versiones más claras y más oscuras */
-    --warm-grey-lighter: #9d8b82; /* Un tono más claro de warm-grey */
-    --warm-grey-darker: #55483d; /* Un tono más oscuro de warm-grey */
-    --deep-purple-lighter: #3e3047; /* Un tono más claro de deep-purple */
-    --deep-purple-darker: #1a0f1e; /* Un tono más oscuro de deep-purple */
+    --warm-grey-lighter: #9d8b82;
+    --warm-grey-darker: #55483d;
+    --deep-purple-lighter: #3e3047;
+    --deep-purple-darker: #1a0f1e;
 }
 
 @font-face {

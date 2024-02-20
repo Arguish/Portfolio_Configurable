@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import ProjectCard from '../../Components/ProjectManagment/ProjectCard';
 import NewProjectForm from '../../Components/ProjectManagment/NewProjectForm';
-import Modal from '../../Components/ProjectManagment/Modal';
-import {
-    createProject,
-    fetchProjects,
-    updateProject,
-    deleteProject,
-} from '../../services/projectService';
+import { fetchProjects } from '../../services/projectService';
 
 const ProjectManagement = () => {
     const [projects, setProjects] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         async function loadProjects() {
@@ -45,23 +37,9 @@ const ProjectManagement = () => {
                     handleProjectChange={handleProjectChange}
                 />
             ))}
-            <NewProjectForm setIsModalOpen={setIsModalOpen} />
+            <NewProjectForm />
         </>
     );
 };
 
 export default ProjectManagement;
-
-const Button = styled.button`
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #0056b3;
-    }
-`;

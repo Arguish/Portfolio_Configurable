@@ -2,6 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
+const Alert = ({ message, type, onDismiss }) => {
+    return (
+        <AlertContainer
+            type={type}
+            variants={alertVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={onDismiss}
+        >
+            {message}
+        </AlertContainer>
+    );
+};
+
+export default Alert;
+
 const AlertContainer = styled(motion.div)`
     position: fixed;
     top: 110px;
@@ -20,20 +37,3 @@ const alertVariants = {
     visible: { x: 0, opacity: 1, transition: { duration: 0.5 } },
     exit: { x: '100%', opacity: 0, transition: { duration: 0.5 } },
 };
-
-const Alert = ({ message, type, onDismiss }) => {
-    return (
-        <AlertContainer
-            type={type}
-            variants={alertVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            onClick={onDismiss}
-        >
-            {message}
-        </AlertContainer>
-    );
-};
-
-export default Alert;
