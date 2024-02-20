@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import ProjectCard from '../Components/ProjectCard/ProyectCard';
+import { fetchProjects } from '../services/projectService.js';
 
 // Opcional: Definir estilos con styled-components
 const ProjectsContainer = styled.div`
@@ -20,32 +22,8 @@ const CardsContainer = styled.div`
     gap: 20px; // Espacio entre tarjetas para un diseño responsive
 `;
 
-const ProjectCard = styled.div`
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
-const ProjectImage = styled.img`
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-`;
-
-const ProjectInfo = styled.div`
-    padding: 15px;
-`;
-
-const ProjectTitle = styled.h3``;
-
-const ProjectDescription = styled.p`
-    font-size: 0.9rem;
-`;
-
 // Suponiendo que tienes una lista de proyectos para mostrar
-const projects = [
+const defaultProjects = [
     {
         id: 1,
         title: 'Proyecto Magento-DinoSol',
@@ -53,30 +31,33 @@ const projects = [
             'Durante este proyecto, me centré en identificar y solucionar problemas en la plataforma Magento 2 customizada por Dinosol, así como en crear funcionalidades personalizadas para satisfacer las necesidades específicas del Grupo Dinosol. Esto incluyó la implementación de nuevas características, la optimización del rendimiento y la mejora de la experiencia del usuario. Trabajé en estrecha colaboración con el equipo del Grupo Dinosol para entender sus requisitos y garantizar que las soluciones proporcionadas cumplieran con sus expectativas y estándares de calidad.',
         imageUrl:
             'https://sf.ezoiccdn.com/ezoimgfmt/www.vectorlogo.es/wp-content/uploads/2017/03/logo-vector-grupo-dinosol.jpg?ezimgfmt=rs:630x320/rscb1/ngcb1/notWebP',
-        // Añade enlaces a demo/repo si es necesario
+        technologies: [{ name: 'Magento', color: 'Orange' }],
     },
     // Añade más proyectos según sea necesario
 ];
 
 const Projects = () => {
+    const [projects, setProjects] = useState(defaultProjects);
+
+    useEffect(() => {
+        const loadProjects = async () => {
+            try {
+                const data = await fetchProjects(); // Cambia esto por tu llamada a la API real
+                setProjects(data); // Suponiendo que la API devuelve una lista de proyectos
+            } catch (error) {
+                console.error('Error al cargar proyectos:', error);
+                // No es necesario cambiar el estado, ya usamos los proyectos por defecto
+            }
+        };
+
+        loadProjects();
+    }, []);
     return (
         <ProjectsContainer>
             <SectionTitle>Mis Proyectos</SectionTitle>
             <CardsContainer>
-                {projects.map(({ id, title, description, imageUrl }) => (
-                    <ProjectCard key={id}>
-                        <ProjectImage
-                            src={imageUrl}
-                            alt={`Imagen del ${title}`}
-                        />
-                        <ProjectInfo>
-                            <ProjectTitle>{title}</ProjectTitle>
-                            <ProjectDescription>
-                                {description}
-                            </ProjectDescription>
-                            {/* Añadir aquí enlaces a demos o repositorios */}
-                        </ProjectInfo>
-                    </ProjectCard>
+                {projects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
                 ))}
             </CardsContainer>
         </ProjectsContainer>
