@@ -83,13 +83,13 @@ const TechnologiesDiv = styled.div`
 const Button = styled.button`
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #e11111;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
 
     &:hover {
-        background-color: #0056b3;
+        background-color: var(--secondary-color);
     }
 `;

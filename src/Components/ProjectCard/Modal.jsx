@@ -3,18 +3,20 @@ import styled from 'styled-components';
 
 const ModalBackdrop = styled.div`
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--shadow-color);
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
 const ModalContent = styled.div`
-    background-color: white;
+    background-color: var(--background-color);
+    z-index: 20;
     padding: 20px;
     border-radius: 8px;
     max-width: 600px;

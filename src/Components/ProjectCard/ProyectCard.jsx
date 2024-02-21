@@ -41,9 +41,9 @@ const ProjectCard = ({ project, modal = true }) => {
 
 export default ProjectCard;
 const Card = styled.div`
-    background-color: #cccccc53;
+    background-color: var(--background-color);
     width: 200px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 16px;
     margin: 8px;

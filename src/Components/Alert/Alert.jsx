@@ -24,11 +24,11 @@ const AlertContainer = styled(motion.div)`
     top: 110px;
     right: 20px;
     padding: 10px 20px;
-    color: white;
+    color: var(--text-color);
     background-color: ${({ type }) =>
-        type === 'error' ? '#ff3860' : '#209cee'};
+        type === 'error' ? 'var(--error-color)' : 'var(--succes-color)'};
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--shadow-color);
     z-index: 1000;
 `;
 

@@ -92,12 +92,12 @@ const Bio = styled.p`
     max-width: 600px;
     text-align: center;
     background-color: var(--background-color);
-    border: 4px solid var(--text-color);
+    border: 4px solid var(--border-color);
     border-radius: 5px;
 `;
 
 const skillsDefault = [
-    { name: 'HTML', domain: 'html.com' },
+    { name: 'mySql', domain: 'mySql.com' },
     { name: 'CSS', domain: 'css-tricks.com' },
     { name: 'JavaScript', domain: 'javascript.com' },
     { name: 'React', domain: 'reactjs.org' },

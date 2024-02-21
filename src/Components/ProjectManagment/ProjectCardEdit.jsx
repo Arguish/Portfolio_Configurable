@@ -6,7 +6,6 @@ import {
     createProject,
 } from '../../services/projectService';
 
-import TechEdit from './TechEdit';
 import TechnologiesContainer from './TechnologiesContainer';
 
 const defaultProject = {
@@ -20,7 +19,6 @@ const ProjectCardEdit = ({ project, closeModal }) => {
     const [teches, setTeches] = useState(project ? project.technologies : []);
 
     const [localProyect, setlocalProyect] = useState(project || defaultProject);
-    const [edit, setedit] = useState(false);
     const [isNew, setisNew] = useState(!project ? true : false);
 
     const handleUpdate = async () => {
@@ -130,10 +128,10 @@ const ProjectCardEdit = ({ project, closeModal }) => {
 export default ProjectCardEdit;
 
 const CardContainer = styled.div`
-    background-color: #fff;
+    background-color: var(--background-color);
     width: 40vw;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--shadow-color);
     margin: auto;
     margin-top: 10vh;
     padding: 20px;
@@ -144,14 +142,14 @@ const CardContainer = styled.div`
 const Input = styled.input`
     margin: 5px 0;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
 `;
 
 const TextArea = styled.textarea`
     margin: 5px 0;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     resize: vertical;
 `;
@@ -159,13 +157,13 @@ const TextArea = styled.textarea`
 const Button = styled.button`
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
 
     &:hover {
-        background-color: #0056b3;
+        background-color: var(--secondary-color);
     }
 `;

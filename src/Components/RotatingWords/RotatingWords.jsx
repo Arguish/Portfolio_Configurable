@@ -54,12 +54,13 @@ const RotatingWords = () => {
                 }, 2000);
             }
         }, 150);
-
+        document.title = `While (true):${currentWord}`;
         return () => clearInterval(updateWord);
     }, [currentWord, currentIndex, currentLetterIndex]);
 
     return (
         <RotatingText>
+            While (true):
             {currentWord}
             <Cursor>|</Cursor>
         </RotatingText>

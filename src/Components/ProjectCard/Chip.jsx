@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const ChipContainer = styled.span`
     padding: 4px 8px;
     border-radius: 16px;
-    background-color: ${(props) => props.color || '#ccc'};
-    color: white;
+    background-color: ${(props) => props.color || 'var(--accent-color)'};
+    color: var(--const-black);
     font-size: 14px;
 `;
 

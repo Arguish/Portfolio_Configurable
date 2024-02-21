@@ -1,14 +1,24 @@
 :root {
-    --vivid-red: #e01f3f;
-    --cream: #fff8ed;
-
-    --warm-grey: #7b6960;
-    --deep-purple: #271d2c;
-
-    --warm-grey-lighter: #9d8b82;
-    --warm-grey-darker: #55483d;
-    --deep-purple-lighter: #3e3047;
-    --deep-purple-darker: #1a0f1e;
+    --dark-slate: #24201f;
+    --warm-red: #a14343;
+    --soft-peach: #db9e6b;
+    --sunny-yellow: #f0d767;
+    --olive-green: #969e4c;
+    --teal-green: #36785a;
+    --sky-blue: #5194a8;
+    --lavender: #9473bf;
+    --magenta: #b853a0;
+    --hot-pink: #d14787;
+    --pure-white: #b8c2b9;
+    --rich-brown: #5c4034;
+    --muted-brown: #7d6761;
+    --grayish-brown: #706153;
+    --dark-gray: #66615f;
+    --charcoal-gray: #333030;
+    --light-gray: #ccc6c0;
+    --pale-blue: #d1e3eb;
+    --aqua-marine: #abd1d4;
+    --navy-blue: #28334f;
 }
 
 @font-face {
@@ -25,46 +35,60 @@
     font-style: normal;
 }
 
+/* Tema claro */
 [data-theme='light'] {
-    --background-color: var(--cream);
-    --body-background-color: var(--warm-grey-lighter);
-    --text-color: var(--deep-purple);
-    --accent-color: var(--vivid-red);
-    --border-color: var(--warm-grey);
+    --const-black: var(--dark-slate);
+    --const-white: var(--pure-white);
+    --background-color: var(--light-gray);
+    --text-color: var(--charcoal-gray);
+    --primary-color: var(--warm-red);
+    --secondary-color: var(--sky-blue);
+    --accent-color: var(--sunny-yellow);
+    --error-color: var(--hot-pink);
+    --succes-color: var(--olive-green);
+    --link-color: var(--teal-green);
+    --border-color: var(--dark-gray);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --body-background-color: var(--pure-white);
 }
 
+/* Tema oscuro */
 [data-theme='dark'] {
-    --background-color: var(--deep-purple-darker);
-    --body-background-color: var(--deep-purple);
-    --text-color: var(--cream);
-    --accent-color: var(--vivid-red);
-    --border-color: var(--cream);
+    --const-black: var(--dark-slate);
+    --const-white: var(--pure-white);
+    --background-color: var(--dark-slate);
+    --text-color: var(--pale-blue);
+    --primary-color: var(--lavender);
+    --secondary-color: var(--aqua-marine);
+    --error-color: var(--hot-pink);
+    --succes-color: var(--olive-green);
+    --accent-color: var(--magenta);
+    --link-color: var(--soft-peach);
+    --border-color: var(--grayish-brown);
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --body-background-color: var(--navy-blue);
 }
 
 body {
     background-color: var(--body-background-color);
     color: var(--text-color);
-    background-image: url('./assets/textura.jpg');
-    background-size: cover;
-    background-repeat: repeat;
-    background-blend-mode: multiply;
     font-family: 'YourPrimaryFont', sans-serif;
 }
 a {
-    color: var(--accent-color);
+    color: var(--link-color);
     text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: darken(var(--accent-color), 10%);
+    color: darken(var(--link-color), 10%);
     text-decoration: underline;
 }
 
 strong {
     font-family: 'YourImportantFont', serif;
     font-size: 1.3em;
-    color: var(--vivid-red);
-    text-shadow: -1px -1px 0 var(--text-color), 1px -1px 0 var(--text-color),
-        -1px 1px 0 var(--text-color), 1px 1px 0 var(--text-color);
+    color: var(--primary-color);
+    text-shadow: -1px -1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color),
+        -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color);
 }

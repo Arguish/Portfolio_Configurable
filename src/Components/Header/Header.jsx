@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import RotatingWords from '../RotatingWords/RotatingWords';
 import { useNavigate } from 'react-router-dom';
 import ThemeButton from '../ThemeButton/ThemeButton';
-import headerBackground from '../../assets/textura.jpg';
 
 const Header = ({ theme, toggleTheme }) => {
     const navigate = useNavigate();
@@ -17,32 +16,33 @@ const Header = ({ theme, toggleTheme }) => {
             <HeaderContainer>
                 <Logo onClick={handleClick}>
                     <strong>
-                        While (true):
                         <RotatingWords />
                     </strong>
                 </Logo>
                 <div>
                     <Nav>
-                        <NavLink to="/about">About Me</NavLink>
-                        <NavLink to="/projects">Projects</NavLink>
                         <NavLink to="/contact">Contact</NavLink>
-                        <ThemeButton theme={theme} toggleTheme={toggleTheme} />
                     </Nav>
                 </div>
             </HeaderContainer>
+            <ThemeButtonContainer>
+                <ThemeButton theme={theme} toggleTheme={toggleTheme} />
+            </ThemeButtonContainer>
         </HeaderBorder>
     );
 };
 
 export default Header;
 
+const ThemeButtonContainer = styled.div`
+    position: fixed;
+    top: 20px;
+    right: 20px;
+`;
+
 const HeaderBorder = styled.div`
     border: 4px solid;
     border-style: solid;
-    background-image: url(${headerBackground});
-    background-size: cover;
-    background-repeat: repeat;
-    background-blend-mode: multiply;
     background-color: var(--background-color);
     border-radius: 10px;
 `;
@@ -51,10 +51,9 @@ const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    padding-right: 70px;
     border-radius: 20px;
     background-color: var(--background-color);
-    background-image: url(${headerBackground});
-    background-blend-mode: multiply;
     color: var(--text-color);
 `;
 
@@ -71,10 +70,10 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
     text-decoration: none;
-    color: var(--accent-color);
+    color: var(--link-color);
     font-weight: bold;
 
     &:hover {
-        color: darken(var(--accent-color), 10%);
+        color: darken(var(--link-color), 10%);
     }
 `;

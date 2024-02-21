@@ -97,14 +97,14 @@ const Form = styled.form`
 const Input = styled.input`
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
 `;
 
 const TextArea = styled.textarea`
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     height: 100px;
 `;
@@ -113,12 +113,12 @@ const Button = styled.button`
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
     cursor: pointer;
 
     &:hover {
-        background-color: var(--cream);
+        background-color: var(--secondary-color);
     }
 `;
 
