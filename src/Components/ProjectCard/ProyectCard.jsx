@@ -3,8 +3,45 @@ import styled from 'styled-components';
 import Modal from './Modal.jsx';
 import Chip from './Chip.jsx';
 
+const ProjectCard = ({ project, modal = true }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const technologies = project ? project.technologies : [];
+    const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+    return (
+        <>
+            <Card onClick={toggleModal}>
+                <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    style={{
+                        width: '100%',
+                        height: 'auto',
+                        borderRadius: '4px',
+                    }}
+                />
+                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectDescription>{project.description}</ProjectDescription>
+                <TechChipsContainer>
+                    {technologies.map((tech) => (
+                        <Chip
+                            key={tech.name}
+                            text={tech.name}
+                            color={tech.color}
+                        />
+                    ))}
+                </TechChipsContainer>
+            </Card>
+            {modal && isModalOpen && (
+                <Modal project={project} onClose={toggleModal} />
+            )}
+        </>
+    );
+};
+
+export default ProjectCard;
 const Card = styled.div`
-    height: 300px;
+    background-color: #cccccc53;
     width: 200px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -29,39 +66,3 @@ const TechChipsContainer = styled.div`
     gap: 8px;
     margin-top: 8px;
 `;
-
-const ProjectCard = ({ project }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const technologies = project.technologies || [];
-    const toggleModal = () => setIsModalOpen(!isModalOpen);
-
-    return (
-        <>
-            <Card onClick={toggleModal}>
-                <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    style={{
-                        width: '100%',
-                        height: 'auto',
-                        borderRadius: '4px',
-                    }}
-                />
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <ProjectDescription>{project.description}</ProjectDescription>
-                <TechChipsContainer>
-                    {project.technologies.map((tech) => (
-                        <Chip
-                            key={tech.name}
-                            text={tech.name}
-                            color={tech.color}
-                        />
-                    ))}
-                </TechChipsContainer>
-            </Card>
-            {isModalOpen && <Modal project={project} onClose={toggleModal} />}
-        </>
-    );
-};
-
-export default ProjectCard;

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import ProjectCard from '../../Components/ProjectManagment/ProjectCard';
-import NewProjectForm from '../../Components/ProjectManagment/NewProjectForm';
+import ProjectCardEdit from '../../Components/ProjectManagment/ProjectCardEdit';
+import ProjectCard from '../../Components/ProjectCard/ProyectCard';
 import { fetchProjects } from '../../services/projectService';
 
 const ProjectManagement = () => {
     const [projects, setProjects] = useState([]);
+    const [selected, setselected] = useState({});
+    const [modal, setmodal] = useState(false);
 
     useEffect(() => {
         async function loadProjects() {
@@ -18,26 +20,30 @@ const ProjectManagement = () => {
         loadProjects();
     }, []);
 
-    const handleProjectChange = (projectId, field, value) => {
-        setProjects(
-            projects.map((project) =>
-                project._id === projectId
-                    ? { ...project, [field]: value }
-                    : project
-            )
-        );
-    };
-
     return (
         <>
-            {projects.map((project) => (
-                <ProjectCard
-                    key={project._id}
-                    project={project}
-                    handleProjectChange={handleProjectChange}
-                />
+            {modal && (
+                <ProjectCardEdit project={selected} closeModal={setmodal} />
+            )}
+            {projects.map((project, index) => (
+                <div
+                    key={index}
+                    onClick={() => {
+                        setmodal(!modal);
+                        setselected(project);
+                    }}
+                >
+                    <ProjectCard key={index} project={project} modal={false} />
+                </div>
             ))}
-            <NewProjectForm />
+            <button
+                onClick={() => {
+                    setmodal(!modal);
+                    setselected(null);
+                }}
+            >
+                Nuevo
+            </button>
         </>
     );
 };
