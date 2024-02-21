@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import RotatingWords from '../RotatingWords/RotatingWords';
 import { useNavigate } from 'react-router-dom';
-import ThemeButton from '../ThemeButton/ThemeButton';
 
 const Header = ({ theme, toggleTheme }) => {
     const navigate = useNavigate();
@@ -12,33 +11,26 @@ const Header = ({ theme, toggleTheme }) => {
         navigate('/');
     };
     return (
-        <HeaderBorder theme={theme}>
-            <HeaderContainer>
-                <Logo onClick={handleClick}>
-                    <strong>
-                        <RotatingWords />
-                    </strong>
-                </Logo>
-                <div>
-                    <Nav>
-                        <NavLink to="/contact">Contact</NavLink>
-                    </Nav>
-                </div>
-            </HeaderContainer>
-            <ThemeButtonContainer>
-                <ThemeButton theme={theme} toggleTheme={toggleTheme} />
-            </ThemeButtonContainer>
-        </HeaderBorder>
+        <>
+            <HeaderBorder theme={theme}>
+                <HeaderContainer>
+                    <Logo onClick={handleClick}>
+                        <strong>
+                            <RotatingWords />
+                        </strong>
+                    </Logo>
+                    <div>
+                        <Nav>
+                            <NavLink to="/contact">Contact</NavLink>
+                        </Nav>
+                    </div>
+                </HeaderContainer>
+            </HeaderBorder>
+        </>
     );
 };
 
 export default Header;
-
-const ThemeButtonContainer = styled.div`
-    position: fixed;
-    top: 20px;
-    right: 20px;
-`;
 
 const HeaderBorder = styled.div`
     border: 4px solid;
@@ -51,21 +43,33 @@ const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    padding-right: 70px;
     border-radius: 20px;
     background-color: var(--background-color);
     color: var(--text-color);
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 10px;
+    }
 `;
 
 const Logo = styled.h1`
     margin: 0;
     font-size: 24px;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        font-size: 20px;
+    }
 `;
 
 const Nav = styled.nav`
     display: flex;
     gap: 20px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const NavLink = styled(Link)`

@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Alert from './Components/Alert/Alert.jsx';
 import { useGlobalContext } from './CustomHooks/useGlobalContext/useGlobalContext.jsx';
 
+import ThemeButton from './Components/ThemeButton/ThemeButton.jsx';
+
 const MainContainer = styled.div`
     background-color: transparent;
 `;
@@ -34,8 +36,20 @@ function App() {
             <MainContainer>
                 <Directory />
             </MainContainer>
+            <ThemeButtonContainer>
+                <ThemeButton theme={theme} toggleTheme={toggleTheme} />
+            </ThemeButtonContainer>
         </>
     );
 }
 
 export default App;
+
+const ThemeButtonContainer = styled.div`
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 60px; /* Ancho fijo para contenedor */
+    height: 60px; /* Alto fijo para contenedor */
+    z-index: 1000; /* Asegura que el botón se muestre sobre otros elementos */
+`;

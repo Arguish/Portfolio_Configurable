@@ -6,6 +6,7 @@ import photo from '../assets/P7290063.png';
 
 const AboutMe = () => {
     const [skills, setSkills] = useState(skillsDefault);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     useEffect(() => {
         const loadTechnologies = async () => {
@@ -18,25 +19,56 @@ const AboutMe = () => {
         };
 
         loadTechnologies();
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
     useEffect;
     return (
         <AboutContainer>
             <Skill>
                 <SkillsContainer>
-                    <TechLogo technologies={skills} size="100px" />
-                    <TechLogo technologies={skills} size="100px" />
-                    <TechLogo technologies={skills} size="100px" />
-                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo
+                        class="tech-logo"
+                        technologies={skills}
+                        size="100px"
+                    />
+                    {!isMobile && (
+                        <TechLogo technologies={skills} size="100px" />
+                    )}
+                    {!isMobile && (
+                        <TechLogo technologies={skills} size="100px" />
+                    )}
+                    <TechLogo
+                        class="tech-logo"
+                        technologies={skills}
+                        size="100px"
+                    />
                 </SkillsContainer>
                 <SkillsContainer>
                     <ProfileImage />
                 </SkillsContainer>
                 <SkillsContainer>
-                    <TechLogo technologies={skills} size="100px" />
-                    <TechLogo technologies={skills} size="100px" />
-                    <TechLogo technologies={skills} size="100px" />
-                    <TechLogo technologies={skills} size="100px" />
+                    <TechLogo
+                        class="tech-logo"
+                        technologies={skills}
+                        size="100px"
+                    />
+                    {!isMobile && (
+                        <TechLogo technologies={skills} size="100px" />
+                    )}
+                    {!isMobile && (
+                        <TechLogo technologies={skills} size="100px" />
+                    )}
+                    <TechLogo
+                        class="tech-logo"
+                        technologies={skills}
+                        size="100px"
+                    />
                 </SkillsContainer>
             </Skill>
             <Bio>
@@ -77,6 +109,15 @@ const SkillsContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+
+    @media (max-width: 768px) {
+        &:nth-child(1),
+        &:nth-child(3) {
+            .tech-logo:nth-child(n + 3) {
+                display: none;
+            }
+        }
+    }
 `;
 
 const Skill = styled.div`

@@ -3,10 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Button = styled.button`
+    position: fixed;
     font-size: 24px;
     cursor: pointer;
     border: none;
     background: transparent;
+    width: 60px; /* Ancho fijo */
+    height: 60px; /* Alto fijo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const ThemeButton = ({ toggleTheme, theme }) => {

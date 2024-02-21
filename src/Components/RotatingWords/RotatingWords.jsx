@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const RotatingText = styled.span`
     font-weight: bold;
+    display: inline-block;
+    min-width: 150px; // Ajusta este valor según la longitud de tu palabra más larga
+    text-align: left;
 `;
 
 const Cursor = styled.span`
@@ -61,6 +64,7 @@ const RotatingWords = () => {
     return (
         <RotatingText>
             While (true):
+            <br />
             {currentWord}
             <Cursor>|</Cursor>
         </RotatingText>

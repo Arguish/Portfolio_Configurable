@@ -8,8 +8,11 @@ const Landing = () => {
     return (
         <>
             <Home></Home>
+            <hr />
             <Projects></Projects>
+            <hr />
             <AboutMe></AboutMe>
+            <hr />
             <Contact></Contact>
         </>
     );
