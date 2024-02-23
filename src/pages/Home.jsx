@@ -97,7 +97,7 @@ const Image = styled.div`
     background-image: url(${Photo1});
     background-size: cover;
     background-position: center; /* Asegura que el enfoque de la imagen esté centrado */
-    border: 8px solid var(--border-color);
+    border: 8px solid;
 
     @media (max-width: 768px) {
         width: 300px; /* Tamaño más pequeño para dispositivos móviles */

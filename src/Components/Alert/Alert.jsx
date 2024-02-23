@@ -24,9 +24,9 @@ const AlertContainer = styled(motion.div)`
     top: 110px;
     right: 20px;
     padding: 10px 20px;
-    color: var(--text-color);
+    color: var(--const-black);
     background-color: ${({ type }) =>
-        type === 'error' ? 'var(--error-color)' : 'var(--succes-color)'};
+        type === 'error' ? 'var(--error-color)' : 'var(--success-color)'};
     border-radius: 4px;
     box-shadow: 0 2px 4px var(--shadow-color);
     z-index: 1000;

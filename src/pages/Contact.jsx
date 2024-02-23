@@ -68,9 +68,6 @@ const Contact = () => {
                 />
                 <Button type="submit">Enviar Mensaje</Button>
             </Form>
-            <ContactInfo>
-                <p>Email: jhergon8@gmail.com</p>
-            </ContactInfo>
         </ContactContainer>
     );
 };
@@ -114,7 +111,7 @@ const Button = styled.button`
     border: none;
     border-radius: 4px;
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--const-white);
     cursor: pointer;
 
     &:hover {

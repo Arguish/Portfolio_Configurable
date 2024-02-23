@@ -96,7 +96,7 @@ const AboutContainer = styled.div`
 const ProfileImage = styled.div`
     width: 150px;
     height: 150px;
-    border-radius: 75px;
+    border-radius: 75%;
     margin: 20px 0;
     background-image: url(${photo});
     background-size: cover;

@@ -1,24 +1,18 @@
 :root {
-    --dark-slate: #24201f;
-    --warm-red: #a14343;
-    --soft-peach: #db9e6b;
-    --sunny-yellow: #f0d767;
-    --olive-green: #969e4c;
-    --teal-green: #36785a;
-    --sky-blue: #5194a8;
-    --lavender: #9473bf;
-    --magenta: #b853a0;
-    --hot-pink: #d14787;
-    --pure-white: #b8c2b9;
-    --rich-brown: #5c4034;
-    --muted-brown: #7d6761;
-    --grayish-brown: #706153;
-    --dark-gray: #66615f;
-    --charcoal-gray: #333030;
-    --light-gray: #ccc6c0;
-    --pale-blue: #d1e3eb;
-    --aqua-marine: #abd1d4;
-    --navy-blue: #28334f;
+    --crimson-sunset: #e63946;
+    --alabaster-glow: #f1faee;
+    --morning-mist: #a8dadc;
+    --ocean-depth: #457b9d;
+    --midnight-wave: #1d3557;
+
+    --sun-kissed-coral: #e99e75;
+    --whispering-smoke: #bbaab8;
+    --mystic-lavender: #776483;
+    --twilight-magic: #44426e;
+    --eclipse-shadow: #292643;
+
+    --frosty-dawn: #e9f2f9;
+    --espresso-velvet: #201c27;
 }
 
 @font-face {
@@ -35,38 +29,36 @@
     font-style: normal;
 }
 
-/* Tema claro */
 [data-theme='light'] {
-    --const-black: var(--dark-slate);
-    --const-white: var(--pure-white);
-    --background-color: var(--light-gray);
-    --text-color: var(--charcoal-gray);
-    --primary-color: var(--warm-red);
-    --secondary-color: var(--sky-blue);
-    --accent-color: var(--sunny-yellow);
-    --error-color: var(--hot-pink);
-    --succes-color: var(--olive-green);
-    --link-color: var(--teal-green);
-    --border-color: var(--dark-gray);
+    --const-black: var(--espresso-velvet);
+    --const-white: var(--frosty-dawn);
+    --background-color: var(--alabaster-glow);
+    --text-color: var(--midnight-wave);
+    --primary-color: var(--crimson-sunset);
+    --secondary-color: var(--ocean-depth);
+    --accent-color: var(--crimson-sunset);
+    --error-color: var(--sun-kissed-coral);
+    --success-color: var(--whispering-smoke);
+    --link-color: var(--crimson-sunset);
+    --border-color: var(--midnight-wave);
     --shadow-color: rgba(0, 0, 0, 0.2);
-    --body-background-color: var(--pure-white);
+    --body-background-color: var(--morning-mist);
 }
 
-/* Tema oscuro */
 [data-theme='dark'] {
-    --const-black: var(--dark-slate);
-    --const-white: var(--pure-white);
-    --background-color: var(--dark-slate);
-    --text-color: var(--pale-blue);
-    --primary-color: var(--lavender);
-    --secondary-color: var(--aqua-marine);
-    --error-color: var(--hot-pink);
-    --succes-color: var(--olive-green);
-    --accent-color: var(--magenta);
-    --link-color: var(--soft-peach);
-    --border-color: var(--grayish-brown);
+    --const-black: var(--espresso-velvet);
+    --const-white: var(--frosty-dawn);
+    --background-color: var(--twilight-magic);
+    --text-color: var(--whispering-smoke);
+    --primary-color: var(--sun-kissed-coral);
+    --secondary-color: var(--mystic-lavender);
+    --error-color: var(--crimson-sunset);
+    --success-color: var(--morning-mist);
+    --accent-color: var(--sun-kissed-coral);
+    --link-color: var(--sun-kissed-coral);
+    --border-color: var(--whispering-smoke);
     --shadow-color: rgba(255, 255, 255, 0.1);
-    --body-background-color: var(--navy-blue);
+    --body-background-color: var(--eclipse-shadow);
 }
 
 body {
@@ -89,6 +81,5 @@ strong {
     font-family: 'YourImportantFont', serif;
     font-size: 1.3em;
     color: var(--primary-color);
-    text-shadow: -1px -1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color),
-        -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color);
+    text-shadow: 2px 2px 0 var(--shadow-color);
 }
