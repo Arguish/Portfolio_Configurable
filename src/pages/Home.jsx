@@ -26,14 +26,14 @@ const Home = () => {
         <HomeContainer>
             <Image src={Photo1} alt="Tu foto" />
             <div>
-                <div>
+                <IntroDiv>
                     <Title>
                         Hola, soy <strong>Javier</strong>
                     </Title>
                     <Subtitle>
                         Desarrollador Web <strong>Full-Stack</strong>
                     </Subtitle>
-                </div>
+                </IntroDiv>
                 <div>
                     <Bio>
                         Mi experiencia en tecnología audiovisual y mi intensiva
@@ -54,8 +54,15 @@ const Home = () => {
 
 export default Home;
 
+const IntroDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
 const HomeContainer = styled.div`
-    height: auto; /* Cambiado de 70vh para permitir más flexibilidad en el contenido */
+    height: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -65,7 +72,7 @@ const HomeContainer = styled.div`
 
     @media (max-width: 768px) {
         flex-direction: column;
-        gap: 1vh; /* Ajustar según necesidad */
+        gap: 1vh;
     }
 `;
 
@@ -90,17 +97,17 @@ const Bio = styled.p`
 `;
 
 const Image = styled.div`
-    width: 400px; /* Puedes ajustar esto según lo necesites */
-    height: 400px; /* Asegura que esto mantenga la imagen cuadrada */
+    width: 400px;
+    height: 400px;
     border-radius: 100%;
     margin: 20px 0;
     background-image: url(${Photo1});
     background-size: cover;
-    background-position: center; /* Asegura que el enfoque de la imagen esté centrado */
+    background-position: center;
     border: 8px solid;
 
     @media (max-width: 768px) {
-        width: 300px; /* Tamaño más pequeño para dispositivos móviles */
-        height: 300px; /* Mantén la proporción cuadrada */
+        width: 300px;
+        height: 300px;
     }
 `;
