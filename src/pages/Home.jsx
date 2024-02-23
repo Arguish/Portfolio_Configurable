@@ -45,8 +45,8 @@ const Home = () => {
                     </Bio>
                     <Bio>
                         Soy un apasionado por la intersección entre
-                        <strong>tecnología</strong> y
-                        <strong>creatividad.</strong>
+                        <strong> tecnología </strong> y
+                        <strong> creatividad.</strong>
                     </Bio>
                 </div>
             </div>
@@ -106,7 +106,7 @@ const Image = styled.div`
     background-image: url(${Photo1});
     background-size: cover;
     background-position: center;
-    border: 8px solid var(--accent-color);
+    border: 6px solid var(--accent-color);
 
     @media (max-width: 768px) {
         width: 300px;

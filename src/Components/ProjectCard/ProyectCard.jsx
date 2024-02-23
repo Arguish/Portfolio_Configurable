@@ -42,6 +42,7 @@ const ProjectCard = ({ project, modal = true }) => {
 export default ProjectCard;
 const Card = styled.div`
     background-color: var(--background-color);
+    text-align: center;
     width: 200px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -62,6 +63,7 @@ const ProjectDescription = styled.p`
 
 const TechChipsContainer = styled.div`
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 8px;

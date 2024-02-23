@@ -100,7 +100,7 @@ const ProfileImage = styled.div`
     background-image: url(${photo});
     background-size: cover;
     background-position: 50%;
-    border: 8px solid var(--accent-color);
+    border: 6px solid var(--accent-color);
 `;
 
 const SkillsContainer = styled.div`
