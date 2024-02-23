@@ -27,11 +27,13 @@ const Home = () => {
             <Image src={Photo1} alt="Tu foto" />
             <div>
                 <IntroDiv>
+                    <Title>Hola, soy </Title>
                     <Title>
-                        Hola, soy <strong>Javier</strong>
+                        <strong>Javier</strong>
                     </Title>
+                    <Subtitle>Desarrollador Web</Subtitle>
                     <Subtitle>
-                        Desarrollador Web <strong>Full-Stack</strong>
+                        <strong>Full-Stack</strong>
                     </Subtitle>
                 </IntroDiv>
                 <div>
@@ -42,8 +44,8 @@ const Home = () => {
                         innovadoras.
                     </Bio>
                     <Bio>
-                        Soy un apasionado por la intersección entre{' '}
-                        <strong>tecnología</strong> y{' '}
+                        Soy un apasionado por la intersección entre
+                        <strong>tecnología</strong> y
                         <strong>creatividad.</strong>
                     </Bio>
                 </div>
@@ -104,7 +106,7 @@ const Image = styled.div`
     background-image: url(${Photo1});
     background-size: cover;
     background-position: center;
-    border: 8px solid;
+    border: 8px solid var(--accent-color);
 
     @media (max-width: 768px) {
         width: 300px;

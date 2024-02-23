@@ -27,7 +27,6 @@ const AboutMe = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-    useEffect;
     return (
         <AboutContainer>
             <Skill>
@@ -101,7 +100,7 @@ const ProfileImage = styled.div`
     background-image: url(${photo});
     background-size: cover;
     background-position: 50%;
-    border: 8px solid var(--text-color);
+    border: 8px solid var(--accent-color);
 `;
 
 const SkillsContainer = styled.div`
