@@ -22,7 +22,7 @@ axiosInstance.interceptors.response.use(
             error.response &&
             (error.response.status === 401 || error.response.status === 403)
         ) {
-            console.log('Sesión expirada o usuario no autorizado');
+            console.warn('Sesión expirada o usuario no autorizado');
         }
         return Promise.reject(error);
     }

@@ -52,8 +52,8 @@ const Projects = () => {
         <ProjectsContainer>
             <SectionTitle>Mis Proyectos</SectionTitle>
             <CardsContainer>
-                {projects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} project={project} />
                 ))}
             </CardsContainer>
         </ProjectsContainer>

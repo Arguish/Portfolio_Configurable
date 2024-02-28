@@ -118,7 +118,3 @@ const Button = styled.button`
         background-color: var(--secondary-color);
     }
 `;
-
-const ContactInfo = styled.div`
-    margin-top: 20px;
-`;

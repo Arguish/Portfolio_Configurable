@@ -11,6 +11,9 @@ const AdminSubheader = () => {
             <StyledLink to="/dashboard/project-management">
                 Gestionar Proyectos
             </StyledLink>
+            <StyledLink to="/dashboard/blog-management">
+                Gestionar Blog
+            </StyledLink>
         </SubheaderContainer>
     );
 };

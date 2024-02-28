@@ -21,6 +21,7 @@ const Header = ({ theme, toggleTheme }) => {
                     </Logo>
                     <div>
                         <Nav>
+                            <NavLink to="/blog">Blog</NavLink>
                             <NavLink to="/contact">Contact</NavLink>
                         </Nav>
                     </div>
