@@ -11,7 +11,7 @@ const BlogCard = ({ id, title, img, text }) => {
     const articlePath = `/article/${id}`;
     const fullArticleUrl = `${baseUrl}${articlePath}`;
 
-    function truncateString(text, length = 300) {
+    function truncateString(text, length = 200) {
         if (text.length > length) {
             return text.substring(0, length) + '...';
         } else {
