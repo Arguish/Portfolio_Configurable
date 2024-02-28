@@ -37,7 +37,7 @@ const BlogCard = ({ id, title, img, text }) => {
                         <h2>{title || 'Title'}</h2>
                         <p>
                             {truncateString(
-                                text ||
+                                decodeURIComponent(text) ||
                                     `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             Reprehenderit itaque eum reiciendis, fugit voluptas quaerat
                             facere officiis possimus sed sunt aliquid tenetur soluta
