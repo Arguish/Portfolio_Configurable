@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import NoImage from '../../assets/photo1662944723.jpeg';
@@ -10,8 +10,19 @@ const BlogCard = ({ id, title, img, text }) => {
     const baseUrl = `${window.location.protocol}//${window.location.host}`;
     const articlePath = `/article/${id}`;
     const fullArticleUrl = `${baseUrl}${articlePath}`;
+    const [isTablet, setIsTablet] = useState(window.innerWidth < 1000);
 
-    function truncateString(text, length = 200) {
+    useEffect(() => {
+        const handleResize = () => {
+            setIsTablet(window.innerWidth < 1000);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    function truncateString(text) {
+        const length = isTablet ? 150 : 250;
         if (text.length > length) {
             return text.substring(0, length) + '...';
         } else {
@@ -41,7 +52,7 @@ const BlogCard = ({ id, title, img, text }) => {
                                     `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             Reprehenderit itaque eum reiciendis, fugit voluptas quaerat
                             facere officiis possimus sed sunt aliquid tenetur soluta
-                            iste inventore? Adipisci expedita repellat ratione quod.`
+                            iste inventore? Adipisci expedita repellat ratione quod`
                             )}
                         </p>
                     </ContentDiv>
