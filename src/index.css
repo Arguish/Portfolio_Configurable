@@ -87,3 +87,8 @@ strong {
     color: var(--primary-color);
     text-shadow: 2px 2px 0 var(--shadow-color);
 }
+
+img {
+    max-height: 250px;
+    width: auto;
+}
