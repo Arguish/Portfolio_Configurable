@@ -30,6 +30,13 @@ const BlogCard = ({ id, title, img, text }) => {
         }
     }
 
+    function filterSpecials(cadena) {
+        // Expresión regular para buscar caracteres que no sean letras ni números
+        const regex = /[^a-zA-Z0-9\s]/g;
+        // Reemplaza los caracteres especiales por una cadena vacía
+        return cadena.replace(regex, '');
+    }
+
     return (
         <>
             <BlogCardDiv>
@@ -47,12 +54,14 @@ const BlogCard = ({ id, title, img, text }) => {
                     >
                         <h2>{title || 'Title'}</h2>
                         <p>
-                            {truncateString(
-                                decodeURIComponent(text) ||
-                                    `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            {filterSpecials(
+                                truncateString(
+                                    decodeURIComponent(text) ||
+                                        `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             Reprehenderit itaque eum reiciendis, fugit voluptas quaerat
                             facere officiis possimus sed sunt aliquid tenetur soluta
                             iste inventore? Adipisci expedita repellat ratione quod`
+                                )
                             )}
                         </p>
                     </ContentDiv>

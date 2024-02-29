@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import {
     createArticle,
     fetchArticles,
@@ -54,7 +55,9 @@ const BlogManagement = () => {
     };
 
     const handleEdit = (article) => {
+        article.text = decodeURIComponent(article.text);
         setCurrentEntry(article);
+        window.scroll(0, 0);
     };
 
     const handleDelete = async (id) => {
@@ -68,31 +71,35 @@ const BlogManagement = () => {
     };
 
     return (
-        <div>
+        <BlogDiv>
             <h2>Administrar Entradas del Blog</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    name="title"
-                    value={currentEntry.title}
-                    onChange={handleInputChange}
-                    placeholder="Título"
-                    required
-                />
-                <input
-                    name="img"
-                    value={currentEntry.img}
-                    onChange={handleInputChange}
-                    placeholder="URL de la Imagen"
-                />
-                <textarea
-                    name="text"
-                    value={currentEntry.text}
-                    onChange={handleInputChange}
-                    placeholder="Contenido"
-                    required
-                />
-                <button type="submit">Guardar Entrada</button>
-            </form>
+            <FormDiv>
+                <form onSubmit={handleSubmit}>
+                    <FormDiv>
+                        <input
+                            name="title"
+                            value={currentEntry.title}
+                            onChange={handleInputChange}
+                            placeholder="Título"
+                            required
+                        />
+                        <input
+                            name="img"
+                            value={currentEntry.img}
+                            onChange={handleInputChange}
+                            placeholder="URL de la Imagen"
+                        />
+                        <CustomText
+                            name="text"
+                            value={currentEntry.text}
+                            onChange={handleInputChange}
+                            placeholder="Contenido"
+                            required
+                        />
+                        <button type="submit">Guardar Entrada</button>
+                    </FormDiv>
+                </form>
+            </FormDiv>
             <h3>Entradas Existentes</h3>
             <ul>
                 {entries.map((entry) => (
@@ -108,8 +115,33 @@ const BlogManagement = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </BlogDiv>
     );
 };
 
 export default BlogManagement;
+
+const CustomText = styled.textarea`
+    width: 90vw;
+    min-height: 30vh;
+`;
+
+const BlogDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    border: 1px red solid;
+    width: 90vw;
+`;
+
+const FormDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px red solid;
+    width: 100%;
+    align-self: center;
+`;
