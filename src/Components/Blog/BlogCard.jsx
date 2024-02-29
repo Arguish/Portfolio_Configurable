@@ -31,9 +31,7 @@ const BlogCard = ({ id, title, img, text }) => {
     }
 
     function filterSpecials(cadena) {
-        // Expresión regular para buscar caracteres que no sean letras ni números
         const regex = /[^a-zA-Z0-9\s]/g;
-        // Reemplaza los caracteres especiales por una cadena vacía
         return cadena.replace(regex, '');
     }
 

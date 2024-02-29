@@ -49,7 +49,7 @@ const ThemeButtonContainer = styled.div`
     position: absolute;
     top: 20px;
     right: 10px;
-    width: 60px; /* Ancho fijo para contenedor */
-    height: 60px; /* Alto fijo para contenedor */
-    z-index: 1000; /* Asegura que el botón se muestre sobre otros elementos */
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
 `;

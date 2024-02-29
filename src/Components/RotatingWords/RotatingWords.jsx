@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const RotatingText = styled.span`
     font-weight: bold;
     display: inline-block;
-    min-width: 150px; // Ajusta este valor según la longitud de tu palabra más larga
+    min-width: 150px;
     text-align: left;
 `;
 
