@@ -29,13 +29,15 @@ const BlogManagement = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        const encodedText = encodeURIComponent(value);
-        console.log(encodedText);
-        setCurrentEntry({ ...currentEntry, [name]: encodedText });
+        setCurrentEntry({ ...currentEntry, [name]: value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setCurrentEntry({
+            ...currentEntry,
+            text: encodeURIComponent(currentEntry.text),
+        });
         try {
             if (currentEntry._id) {
                 await updateArticle(currentEntry._id, currentEntry);

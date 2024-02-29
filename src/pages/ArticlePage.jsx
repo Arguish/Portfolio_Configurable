@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchOneArticles } from '../services/blogService';
 import NoImage from '../assets/photo1662944723.jpeg';
 import Share from '../Components/Blog/Share';
+import Markdown from 'react-markdown';
 
 const ArticlePage = () => {
     const { id } = useParams(); // Obtiene el id desde la URL
@@ -37,7 +38,7 @@ const ArticlePage = () => {
                 <ImageDiv $img={article.img} />
                 <hr />
                 <P>
-                    <TextWithLineBreaks text={decoded} />
+                    <Markdown>{decoded}</Markdown>
                 </P>
             </ArticleDiv>
         </>
@@ -57,7 +58,7 @@ const Sticky = styled.div`
 const Title = styled.h1`
     font-size: 45px;
 `;
-const P = styled.p`
+const P = styled.div`
     width: 80%;
     font-size: 20px;
 `;
