@@ -131,7 +131,6 @@ const BlogDiv = styled.div`
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    border: 1px red solid;
     width: 90vw;
 `;
 
@@ -141,7 +140,6 @@ const FormDiv = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
-    border: 1px red solid;
     width: 100%;
     align-self: center;
 `;
